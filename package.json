@@ -1,7 +1,7 @@
 {
-  "name": "test_gulp",
+  "name": "gulp-base",
   "version": "1.0.0",
-  "description": "Gulp入門用テストプロジェクト",
+  "description": "NEOS グループウェア制作",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,13 @@
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YukiIto/gulp-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YukiIto/gulp-base/issues"
+  },
+  "homepage": "https://github.com/YukiIto/gulp-base#readme"
 }
