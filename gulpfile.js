@@ -6,65 +6,37 @@ var uglify = require("gulp-uglify");
 var browser = require("browser-sync");
 var plumber = require("gulp-plumber");
 
-gulp.task('sass', function() {
-  gulp.src('sass/**/*scss')
-    .pipe(frontnote({
-      css: '../css/style.css'
-    }))
-    .pipe(sass())
-      .pipe(autoprefixer())
-    .pipe(gulp.dest('./css'));
-});
-
-gulp.task("js", function() {
-  gulp.src(["js/**/*.js","!js/min/**/*.js"])
-    .pipe(uglify())
-    .pipe(gulp.dest("./js/min"));
-});
-
-gulp.task("default", function() {
-  gulp.watch(["js/**/*.js","!js/min/**/*.js"],["js"]);
-  gulp.watch("sass/**/*.scss",["sass"]);
-});
-
 gulp.task("server", function() {
-  browser({
-    server: {
-      baseDir: "./"
-    }
-  });
+    browser({
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+gulp.task("js", function() {
+  gulp.src(["app/**/*.js","!app/public/js/min/**/*.js"])
+    .pipe(plumber())
+    .pipe(uglify())
+    .pipe(gulp.dest("./app/public/js/min"))
+    .pipe(browser.reload({stream:true}))
 });
 
-gulp.task("js", function() {
-  gulp.src(["js/**/*.js","!js/min/**/*.js"])
-    .pipe(uglify())
-    .pipe(gulp.dest("./js/min"))
+gulp.task("sass", function() {
+  gulp.src('./assets/sass/**/*.scss')
+    .pipe(plumber())
+    .pipe(frontnote({
+      out: './assets/styleguide',
+      css: '../../app/public/css/app.css'
+    }))
+    .pipe(sass({
+      outputStyle: 'expanded'
+    }))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest("./app/public/css"))
     .pipe(browser.reload({stream:true}))
 });
 
 gulp.task("default",['server'], function() {
-  gulp.watch(["js/**/*.js","!js/min/**/*.js"],["js"]);
-  gulp.watch("sass/**/*.scss",["sass"]);
-});
-
-gulp.task("js", function() {
-  gulp.src(["js/**/*.js","!js/min/**/*.js"])
-    .pipe(plumber())
-    .pipe(frontnote({
-        css: '../css/style.css'
-      }))
-    .pipe(sass())
-    .pipe(autoprefixer())
-    .pipe(gulp.dest("./css"))
-    .pipe(browser.reload({stream:true}));
-});
-
-gulp.task("sass", function() {
-  gulp.src("sass/**/*scss")
-    .pipe(plumber())
-    .pipe(frontnote())
-    .pipe(sass())
-    .pipe(autoprefixer())
-    .pipe(gulp.dest("./css"))
-    .pipe(browser.reload({stream:true}))
+    gulp.watch(["app/**/*.js","!js/min/**/*.js"],["js"]);
+    gulp.watch('./assets/sass/**/*.scss',["sass"]);
 });
