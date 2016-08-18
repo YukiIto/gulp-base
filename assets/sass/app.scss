@@ -1,0 +1,12 @@
+@import "foundation/_normalize";
+
+h1,
+h2 {
+  color: red;
+  transition: 200ms ease-out transform;
+
+  &:hover {
+    color: blue;
+    transform: translate(10px,0);
+  }
+}
