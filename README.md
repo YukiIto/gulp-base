@@ -1,9 +1,5 @@
 # gulp-base
 
-## NEOSグループウェア制作案件
-
-デスクネッツの契約終了に伴う、社内用および販売用グループウェアの制作。
-
 表側担当：伊藤  
 システム担当：札幌  
 リーダー：栗原さん  
@@ -11,6 +7,8 @@
 gulpで構築し、Githubでファイル管理。
 
 ### ディレクトリ構成
+
+※8/19時点。今後、追加・削除時は随時更新
 
 ```
 ├── /app/  
@@ -25,7 +23,7 @@ gulpで構築し、Githubでファイル管理。
     │   ├── _base.scss  
     │   └── _normalize.scss  
     ├── layout/  
-    │   ├── _footer.scss  
+    │   ├── _nav.scss  
     │   ├── _header.scss  
     │   ├── _main.scss  
     │   └── _sidebar.scss  
