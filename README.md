@@ -13,34 +13,34 @@ gulpで構築し、Githubでファイル管理。
 ### ディレクトリ構成
 
 ```
-├── app  
-│   ├── view  
-│   │   ├── HTMLファイル  
-│   └── public  
-│       ├── _header.scss  
-│       ├── _main.scss  
-│       └── _sidebar.scss   
-└── assets  
-    ├── foundation  
+├── /app/  
+│   ├── view/  
+│   │   ├── htmlファイル  
+│   └── public/  
+│       ├── css/  
+│       ├── js/  
+│       └── images/   
+└── /assets/  
+    ├── foundation/  
     │   ├── _base.scss  
     │   └── _normalize.scss  
-    ├── layout  
+    ├── layout/  
     │   ├── _footer.scss  
     │   ├── _header.scss  
     │   ├── _main.scss  
     │   └── _sidebar.scss  
-    └── object  
-        ├── component  
+    └── object/  
+        ├── component/  
         │   ├── _button.scss  
         │   ├── _dialog.scss  
         │   ├── _grid.scss  
         │   └── _media.scss  
-        ├── project  
+        ├── project/  
         │   ├── _articles.scss  
         │   ├── _comments.scss  
         │   ├── _gallery.scss  
         │   └── _profile.scss  
-        └── utility  
+        └── utility/  
             ├── _align.scss  
             ├── _clearfix.scss  
             ├── _margin.scss  
